@@ -36,6 +36,7 @@
       ],
       'include_dirs': [
         '.',
+        './extensions/',
       ],
       'conditions': [
         ['OS=="mac"', {
@@ -244,6 +245,7 @@
         'chromium_src',
         'vendor/brightray',
         'vendor/native_mate',
+        'vendor/native_mate/native_mate',
         # Include atom_natives.h.
         '<(SHARED_INTERMEDIATE_DIR)',
         # Include directories for uv and node.
@@ -260,6 +262,7 @@
         '<(libchromiumcontent_src_dir)/third_party/libyuv/include',
         # The 'third_party/webrtc/modules/desktop_capture/desktop_frame.h' is using 'webrtc/base/scoped_ptr.h'.
         '<(libchromiumcontent_src_dir)/third_party/',
+        './extensions/',
       ],
       'direct_dependent_settings': {
         'include_dirs': [
@@ -301,6 +304,11 @@
             'vendor/breakpad/breakpad.gyp:breakpad_sender',
           ],
         }],  # OS=="win"
+        ['OS=="mac"', {
+          'defines': [
+            'WEBRTC_MAC'
+          ],
+        }],
         ['OS=="mac" and mas_build==0', {
           'dependencies': [
             'vendor/crashpad/client/client.gyp:crashpad_client',

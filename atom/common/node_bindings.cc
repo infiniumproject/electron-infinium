@@ -57,6 +57,7 @@ REFERENCE_MODULE(atom_common_shell);
 REFERENCE_MODULE(atom_common_v8_util);
 REFERENCE_MODULE(atom_renderer_ipc);
 REFERENCE_MODULE(atom_renderer_web_frame);
+REFERENCE_MODULE(atom_common_input_injector);
 #undef REFERENCE_MODULE
 
 // The "v8::Function::kLineOffsetNotFound" is exported in node.dll, but the
